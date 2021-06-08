@@ -65,4 +65,4 @@ COPY docker-entrypoint.sh /tmp/docker-entrypoint.sh
 
 EXPOSE 22 8888
 
-CMD ["sh", "/tmp/docker-entrypoint.sh"]
+ENTRYPOINT ["sh", "/tmp/docker-entrypoint.sh"]
