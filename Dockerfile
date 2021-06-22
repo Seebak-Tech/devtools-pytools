@@ -35,7 +35,7 @@ COPY --chown=admin init.toml $HOME/.SpaceVim.d/init.toml
 COPY --chown=admin cloudformation.vim $HOME/.SpaceVim.d/ftdetect/cloudformation.vim
 
 # Python layer options for SpaceVim and touch to update the date of the init.toml
-# Installing plugins for layers
+# Installing aws cdk and plugins for layers
 RUN touch $HOME/.SpaceVim.d/init.toml \
     && mkdir $HOME/bin \
     && eval "$(pyenv init -)" \
@@ -48,7 +48,7 @@ RUN touch $HOME/.SpaceVim.d/init.toml \
     && ln -s `pyenv which autoflake` $HOME/bin/autoflake \
     && ln -s `pyenv which coverage` $HOME/bin/coverage \
     && ln -s `pyenv which cfn-lint` $HOME/bin/cfn-lint \
-    && sudo npm install --g dockerfile_lint
+    && sudo npm install --g dockerfile_lint aws-cdk@next
 
 # Installing and configuring poetry and set password to user admin
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - \
