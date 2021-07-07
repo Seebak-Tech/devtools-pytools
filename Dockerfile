@@ -41,7 +41,7 @@ RUN touch $HOME/.SpaceVim.d/init.toml \
     && eval "$(pyenv init -)" \
     && eval "$(pyenv virtualenv-init -)" \
     && pyenv activate neovim3 && pip install --upgrade pip \
-    && pip install flake8 isort yapf autoflake coverage cfn-lint\
+    && pip install flake8 isort yapf autoflake jedi coverage cfn-lint\
     && ln -s `pyenv which flake8` $HOME/bin/flake8 \
     && ln -s `pyenv which isort` $HOME/bin/isort \
     && ln -s `pyenv which yapf` $HOME/bin/yapf \
