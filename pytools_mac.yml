@@ -6,6 +6,7 @@ services:
       command: /bin/zsh
       container_name: pytools
       volumes: 
+        - /var/run/docker.sock:/var/run/docker.sock
         - $WORKSPACE:/workspace
         - $HOME/.gitconfig:/home/admin/.gitconfig
         - $HOME/.aws:/home/admin/.aws
