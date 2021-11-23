@@ -7,6 +7,10 @@ LABEL "Name" = "devtools-pytools"
 
 USER root
 
+ARG CHROME_VERSION="google-chrome-stable"
+
+COPY wrap_chrome_binary /opt/bin/wrap_chrome_binary
+
 # Installing packages
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
         gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
@@ -20,8 +24,15 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
         apt-transport-https \
         curl \
         docker-ce-cli \
+    && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+    && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
+    && apt-get update -qqy \
+    && apt-get -qqy install \
+        ${CHROME_VERSION:-google-chrome-stable} \
+    && rm /etc/apt/sources.list.d/google-chrome.list \
     && apt-get clean all \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && /opt/bin/wrap_chrome_binary
 
 USER admin 
 
