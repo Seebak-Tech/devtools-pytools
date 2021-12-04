@@ -32,7 +32,8 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
     && rm /etc/apt/sources.list.d/google-chrome.list \
     && apt-get clean all \
     && rm -rf /var/lib/apt/lists/* \
-    && sh -x /opt/bin/wrap_chrome_binary
+    && sh -x /opt/bin/wrap_chrome_binary \
+    && npm install -g pyright
 
 USER admin 
 
