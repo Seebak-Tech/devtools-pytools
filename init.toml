@@ -62,9 +62,9 @@ name = 'tpope/vim-projectionist'
 [[layers]]
   name = "lang#python"
 
-[[layers]]                                                                                                                                                  │    LICENSE
-  name = "lsp"                                                                                                                                              │    pytools_linux.yml
-  enabled_clients = ["pyright"]
+[[layers]]
+  name = "lsp"
+  enabled_clients = ['pyright']
 
 [[layers]]
   name = "test" 
