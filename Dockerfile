@@ -68,7 +68,7 @@ RUN touch $HOME/.SpaceVim.d/init.toml \
     && ln -s `pyenv which autoflake` $HOME/bin/autoflake \
     && ln -s `pyenv which coverage` $HOME/bin/coverage \
     && ln -s `pyenv which cfn-lint` $HOME/bin/cfn-lint \
-    && sudo npm install --g dockerfile_lint aws-cdk@next
+    && sudo npm install --g dockerfile_lint aws-cdk
 
 # Installing and configuring poetry and set password to user admin
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - \
